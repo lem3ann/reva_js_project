@@ -218,3 +218,36 @@ ul li:hover {
 ::-webkit-scrollbar-track {
     border-radius: 10px;
 }
+
+.active {
+    color: var(--yellow-without-opacity);
+    transition: all .1s ease-in;
+}
+
+.right-mainpage {
+    display: none;
+}
+
+/* ####################    ABOUT SECTION  ############################*/
+.about-style span {
+    font-family: "Kaushan Script", sans-serif;
+}
+
+.boy-pic img {
+    width: 300px;
+    height: 300px;
+}
+
+.about-content {
+    display: flex;
+    gap: 20px;
+}
+
+.sign-img img {
+    width: 100px;
+    height: 100px;
+}
+
+.flex-ul-list {
+    display: flex;
+}

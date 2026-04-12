@@ -60,9 +60,21 @@ let rightArrow = document.querySelectorAll(".positions-arrow button")[1];
 leftArrow.addEventListener("click", changeBackground);
 rightArrow.addEventListener("click", changeBackground);
 
-// ##########################  CARET ICONU ILE NAVBAR KICILMESI ##########################
-let leftCaretIcon = document.getElementsByClassName("border-and-color")[0];
-leftCaretIcon.addEventListener("click", function () {
-    backgroundImg.style.width = "3000px";
-    backgroundImg.style.overflow = "hidden";
-})
+// // ##########################  CARET ICONU ILE NAVBAR KICILMESI ##########################
+// let leftCaretIcon = document.getElementsByClassName("border-and-color")[0];
+// leftCaretIcon.addEventListener("click", function () {
+//     backgroundImg.style.width = "3000px";
+//     backgroundImg.style.overflow = "hidden";
+// })
+
+// ##########################   NAVTABS MENTIQI ####################################3
+let allList = document.querySelectorAll("ul li");
+// console.log(allList);
+for (let i = 0; i < allList.length; i++) {
+    allList[i].addEventListener("click", function () {
+        allList.forEach(element => {
+            element.classList.remove("active");
+        });
+        allList[i].classList.add("active");
+    });
+};
