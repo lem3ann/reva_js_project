@@ -1,0 +1,20 @@
+:root {
+    /* colors */
+    --default-yellow: rgba(176, 145, 79, 0.7);
+    --yellow-without-opacity: rgb(176, 145, 79);
+    --black-color: #000000;
+    --light-black: #333333;
+    --white-color: #ffffff;
+    --purple-btn: rgb(176 79 138);
+    --teal-btn: teal;
+    --green-btn: #135289;
+
+
+
+
+
+    /* fonts */
+    --fs-thin: 14px;
+    --fs-medium-thin: 16px;
+    --fz-extra-large: 55px;
+}
