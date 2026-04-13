@@ -95,19 +95,36 @@ for (let i = 0; i < ulListTopBorder.length; i++) {
 }
 
 // ? ******************* MAIN NAVTABS ********************************8
-// let mainTab = document.querySelectorAll("nav ul li.flex-center");
-// let sectionTab = document.querySelectorAll(".section-tab");
-// for (let i = 0; i < mainTab.length; i++) {
-//   mainTab[i].addEventListener("click", function () {
+let mainTab = document.querySelectorAll("nav ul li.flex-center");
+let sectionTab = document.querySelectorAll(".section-tab");
+for (let i = 0; i < mainTab.length; i++) {
+  mainTab[i].addEventListener("click", function () {
 
-//     mainTab.forEach(element => element.classList.remove("active"));
+    mainTab.forEach(element => element.classList.remove("active"));
 
-//     sectionTab.forEach(content => {
-//       content.style.display = "none";
-//     });
+    sectionTab.forEach(content => {
+      content.style.display = "none";
+    });
 
-//     mainTab[i].classList.add("active");
+    mainTab[i].classList.add("active");
 
-//     sectionTab[i].style.display = "block";
-//   });
-// }
+    sectionTab[i].style.display = "block";
+  });
+};
+
+
+// ****************PORTFOLIO SEHIFESI UCUN JS   ***************************
+let allImagesButton = document.querySelectorAll(".portfolio-btn button");
+let allPicContainer = document.querySelectorAll(".img-container");
+for (let i = 0; i < allImagesButton.length; i++) {
+  allImagesButton[i].addEventListener("click", function () {
+    allImagesButton.forEach((element) => {
+      element.classList.remove("portfolio-bg");
+    });
+    allPicContainer.forEach((element) => {
+      element.style.display = "none";
+    })
+    allImagesButton[i].classList.add("portfolio-bg");
+    allPicContainer[i].style.display = "block";
+  });
+}

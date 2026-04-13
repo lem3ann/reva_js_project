@@ -31,6 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-right: 1px solid rgb(234, 232, 232);
     /* height: 100%; */
 }
 
@@ -392,6 +393,7 @@ table tr td {
     border-radius: 10px;
     width: 100%;
     height: 440px;
+    object-fit: contain;
 }
 
 .play-btn {
@@ -439,9 +441,8 @@ table tr td {
 }
 
 /* ************************* PORTFOLİO CSS ********************* */
-.portfolio-main-content {
+#portfolio {
     width: 100%;
-    margin: auto;
 }
 
 .portfolio-pics {
@@ -465,7 +466,9 @@ table tr td {
 }
 
 .portfolio-btn button {
-    padding: 8px 15px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    padding: 8px 20px;
     border-radius: 15px;
     border: 1px solid var(--yellow-without-opacity);
     background-color: var(--white-color);
@@ -481,6 +484,11 @@ table tr td {
 li button.portfolio-bg {
     background-color: var(--yellow-without-opacity);
     color: var(--white-color);
+}
+
+.portfolio-pics img {
+    opacity: 0.9;
+    background-color: var(--white-color);
 }
 
 
