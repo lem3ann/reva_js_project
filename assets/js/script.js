@@ -63,17 +63,23 @@ let rightArrow = document.querySelectorAll(".positions-arrow button")[1];
 leftArrow.addEventListener("click", changeBackground);
 rightArrow.addEventListener("click", changeBackground);
 
-// !       ##########################   NAVTABS MENTIQI ####################################3
-let allTab = document.querySelectorAll("ul li");
+// !       ##########################   NAVTABS MENTIQI ####################################
+
+let allTab = document.querySelectorAll(".flex-ul-list li");
 let allListContent = document.querySelectorAll(".about-navtab-content");
-// console.log(allList);
 
 for (let i = 0; i < allTab.length; i++) {
   allTab[i].addEventListener("click", function () {
-    allTab.forEach((element) => {
-      element.classList.remove("active");
+
+    allTab.forEach(element => element.classList.remove("active"));
+
+    allListContent.forEach(content => {
+      content.style.display = "none";
     });
+
     allTab[i].classList.add("active");
+
+    allListContent[i].style.display = "block";
   });
 }
 
@@ -87,3 +93,21 @@ for (let i = 0; i < ulListTopBorder.length; i++) {
     ulListTopBorder[i].classList.add("style-top-border");
   });
 }
+
+// ? ******************* MAIN NAVTABS ********************************8
+// let mainTab = document.querySelectorAll("nav ul li.flex-center");
+// let sectionTab = document.querySelectorAll(".section-tab");
+// for (let i = 0; i < mainTab.length; i++) {
+//   mainTab[i].addEventListener("click", function () {
+
+//     mainTab.forEach(element => element.classList.remove("active"));
+
+//     sectionTab.forEach(content => {
+//       content.style.display = "none";
+//     });
+
+//     mainTab[i].classList.add("active");
+
+//     sectionTab[i].style.display = "block";
+//   });
+// }
