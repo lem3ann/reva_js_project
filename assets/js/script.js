@@ -70,10 +70,9 @@ let allListContent = document.querySelectorAll(".about-navtab-content");
 
 for (let i = 0; i < allTab.length; i++) {
   allTab[i].addEventListener("click", function () {
+    allTab.forEach((element) => element.classList.remove("active"));
 
-    allTab.forEach(element => element.classList.remove("active"));
-
-    allListContent.forEach(content => {
+    allListContent.forEach((content) => {
       content.style.display = "none";
     });
 
@@ -99,10 +98,9 @@ let mainTab = document.querySelectorAll("nav ul li.flex-center");
 let sectionTab = document.querySelectorAll(".section-tab");
 for (let i = 0; i < mainTab.length; i++) {
   mainTab[i].addEventListener("click", function () {
+    mainTab.forEach((element) => element.classList.remove("active"));
 
-    mainTab.forEach(element => element.classList.remove("active"));
-
-    sectionTab.forEach(content => {
+    sectionTab.forEach((content) => {
       content.style.display = "none";
     });
 
@@ -110,8 +108,7 @@ for (let i = 0; i < mainTab.length; i++) {
 
     sectionTab[i].style.display = "block";
   });
-};
-
+}
 
 // ****************PORTFOLIO SEHIFESI UCUN JS   ***************************
 let allImagesButton = document.querySelectorAll(".portfolio-btn button");
@@ -123,8 +120,21 @@ for (let i = 0; i < allImagesButton.length; i++) {
     });
     allPicContainer.forEach((element) => {
       element.style.display = "none";
-    })
+    });
     allImagesButton[i].classList.add("portfolio-bg");
     allPicContainer[i].style.display = "block";
+  });
+}
+
+// ? PORTFOLIO CREATE WHITE BLUR
+let portfolioImgContainer = document.querySelectorAll(".portfolio-first div");
+// let test = document.querySelectorAll(".portfolio-first");
+// console.log(portfolioImgContainer);
+let blurContainer = document.createElement("div");
+for (let i = 0; i < portfolioImgContainer.length; i++) {
+  portfolioImgContainer[i].addEventListener("mouseenter", function () {
+    blurContainer.classList.add("dark-blur");
+    // console.log(blurContainer.parentNode);
+    portfolioImgContainer[i].appendChild(blurContainer);
   });
 }

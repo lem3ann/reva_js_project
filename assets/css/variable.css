@@ -9,6 +9,8 @@
     --teal-btn: teal;
     --green-btn: #135289;
     --grey-font-color:rgb(119, 140, 140);
+    --light-f-color:rgb(235, 235, 235);
+   
 
 
 
@@ -19,4 +21,8 @@
     --fs-medium-thin: 16px;
     --fz-extra-large: 55px;
     --fz-m:19px;
+    --med-fz:40px;
+    --font-medium-3:30px;
+    --font-size-standart:20px;
+
 }

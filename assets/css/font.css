@@ -53,10 +53,9 @@
     font-weight: 900;
 }
 
-/* KAUSHAN SCRIPT */
-@font-face {
-    font-family: "Kaushan Script", sans-serif;
-    src: url("../fonts/vm8vdRfvXFLG3OLnsO15WYS5DG72wNJHMw.woff2");
-    font-weight: 400;
-}
 
+.kaushan-script-regular {
+  font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
