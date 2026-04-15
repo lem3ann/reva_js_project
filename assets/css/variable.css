@@ -10,6 +10,7 @@
     --green-btn: #135289;
     --grey-font-color:rgb(119, 140, 140);
     --light-f-color:rgb(235, 235, 235);
+    --footer-font-color:rgb(51,51,51);
    
 
 
@@ -24,5 +25,7 @@
     --med-fz:40px;
     --font-medium-3:30px;
     --font-size-standart:20px;
+    --fz-px-13:13px;
+    --large-fz:128px;
 
 }

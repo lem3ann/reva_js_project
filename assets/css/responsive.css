@@ -1,0 +1,38 @@
+@media(min-width:1200px) {
+  .personal-info input{
+    width: 45%;
+}
+.yellow-contact-details{
+    width: 55%;
+    border-bottom: 1px solid var(--yellow-without-opacity);
+    border-radius: 3px;
+}
+.round-pic-absolute{
+    border: 3px solid var(--yellow-without-opacity);
+    width: 120px;
+    height: 120px;
+    left: 47%;
+}
+}
+
+
+@media(max-width:991px) {
+    /* .personal-info input{
+    width: 20%;
+}
+.yellow-contact-details{
+    width: 80%;
+} */
+
+}
+
+@media(max-width:767px) {
+
+
+
+}
+
+@media(max-width:575px) {
+                 
+    
+}

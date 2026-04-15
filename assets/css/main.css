@@ -1,7 +1,9 @@
+
 body {
     font-family: "Poppins", sans-serif;
     font-size: var(--fs-thin);
     font-weight: 300;
+    position: relative;
 }
 
 ::selection {
@@ -40,9 +42,9 @@ body {
 }
 .right-mainpage {
     position: relative;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     height: 100%;
     width: 86%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/1.jpg");
@@ -98,10 +100,12 @@ body {
 }
 
 .color-btn button {
-    padding: 5px;
-    background-color: rgb(105, 173, 173);
-    border-radius: 15px;
+    padding: 10px;
+    /* background-color: rgb(105, 173, 173); */
+    border-radius: 10px;
     font-size: var(--fs-thin);
+    text-align: center;
+    
 }
 
 .color-btn {
@@ -109,7 +113,21 @@ body {
     display: flex;
     gap: 10px;
 }
-
+.color-btn div button:nth-child(1){
+background-color: rgb(113, 204, 199);
+border-radius: 10px;
+transition: all .4s ease-in-out;
+}
+.color-btn div button:nth-child(1):hover{
+outline: 5px solid rgba(4, 105, 109, 0.699) ;
+border-radius: 10px;
+background-color: rgb(153, 199, 199);
+color: white;
+font-size: 20px;
+}
+/* .color-btn div:nth-child(1):active{
+    background-color: aqua;
+} */
 .flex-center {
     display: flex;
     flex-direction: column;
@@ -132,7 +150,7 @@ body {
 }
 
 .navbar ul li {
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-bottom: 3px solid rgb(241, 236, 236);
     line-height: 1.7;
     letter-spacing: 0.9px;
@@ -153,7 +171,6 @@ ul li:hover {
 }
 
 .main-btn a {
-    /* margin-right: 35px; */
     width: 200px;
     background-color: var(--yellow-without-opacity);
     color: var(--white-color);
@@ -165,6 +182,18 @@ ul li:hover {
 .main-btn {
     margin: 20px 0;
 }
+/* .main-btn button {
+    width: 200px;
+    background-color: var(--yellow-without-opacity);
+    color: var(--white-color);
+    padding: 15px 30px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+.main-btn {
+    margin: 20px 0;
+} */
 
 .right-mainpage h2 {
     font-size: var(--fz-extra-large);
@@ -173,6 +202,8 @@ ul li:hover {
 }
 
 .center-margin {
+    margin-top: 20%;
+    margin-left: 30px;
     padding: 60px;
 }
 
@@ -395,10 +426,11 @@ table tr td {
 /* !   SERVICES PAGE CSS */
 .services-main-content {
     width: 90%;
+    position: relative;
     /* display: flex;
     justify-content: flex-end; */
-
 }
+
 
 .services-container {
     /* max-width: 1000px; */
@@ -484,7 +516,35 @@ table tr td {
 .services-box img {
     margin: 10px 0;
 }
-
+.services-modal{
+        position: absolute;
+        top: 40%;
+        right: 28%;
+        display: flex;
+       flex-direction: column;
+       display: none;
+       z-index: 20;
+       transition: all .4s ease-in-out;
+}
+.clear-x{
+    display: flex;
+    justify-content: flex-end;
+    font-size: var(--font-medium-3);
+    color: var(--grey-font-color);
+    transition: all .4s ease-in;
+    line-height: 0.6;
+    padding: 5px;
+    font-weight: 600;
+}
+.clear-x:hover{
+    color: var(--white-color);
+    cursor: pointer;
+}
+/* modal gradeint bg dark*/
+.modal-bg-gradient{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.459));
+    
+}
 /* ************************* PORTFOLİO CSS ********************* */
 #portfolio {
     width: 100%;
@@ -556,9 +616,11 @@ div.dark-blur{
 .overflow-class{
     overflow: hidden;
 }
-.white-blur{
-
+/* images opacity */
+.opacity-class{
+    opacity: 0.2; 
 }
+
 
 
 /* ! ************************** TESTIMONIALS ********************************** */
@@ -660,8 +722,8 @@ div.dark-blur{
     position: absolute;
     top: 17%;
     left: 45%;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
 }
 .round-pic-absolute img{
@@ -670,35 +732,45 @@ div.dark-blur{
     border-radius: 50%;
     object-fit: cover;
 }
+/* round img border class */
+.round-class-yellow{
+    border: 3px solid var(--yellow-without-opacity);
+}
 /*  ! *************************** CONTACT  **************************** */
 .form-container{
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
 .personal-info input{
     width: 46%;
     margin-right: 20px;
     padding: 20px 5px;
-    border-bottom: 3px solid var(--yellow-without-opacity);
-    border-radius: 5px;
+    border-bottom: 2px solid var(--yellow-without-opacity);
+    border-radius: 3px;
 }
 .yellow-contact-details{
-    padding: 40px 30px;
+    padding: 20px;
     background-color: var(--yellow-without-opacity);
     display: flex;
     width: 60%;
+    box-shadow: -3px 6px 23px rgba(144, 144, 144, 0.46);
+    height: 300px;
 }
 .contact-form{
     width: 40%;
 }
 textarea{
+    resize: none;
     width: 100%;
     padding: 30px 0;
     border: none  !important;
+    border-bottom: 3px solid var(--yellow-without-opacity) !important;
 }
-textarea:active{
-    border: none;
+textarea:focus{
+    border: none !important;
 }
 form{
     width: 100%;
@@ -706,17 +778,76 @@ form{
 }
 .message-btn{
     padding: 20px;
+    margin-top: 30px;
     background-color: var(--yellow-without-opacity);
     color: var(--white-color);
     border-radius: 4px;
     letter-spacing: 1.5px;
-    width: 200px;
+    width: 190px;
     transition: all .4s ease-in-out;
 }
 .message-btn:hover{
     width: 250px;
+    cursor: pointer;
+}
+.app-length{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--yellow-without-opacity);
+    padding: 5px;
+    color: var(--white-color);
+    font-size: var(--fz-m);
+}
+.app-length:hover{
+    cursor: pointer;
+}
+.app-length i{
+    margin-right: 10px;
 }
 
+.open-app{
+    height: 5%;
+}
+.footer-contact-details{
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    font-size: var( --fz-px-13);
+    color: var(--footer-font-color);
+}
+.footer-contact-details p a{
+    color: var(--yellow-without-opacity);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+/* .map-frame{
+    margin: 20px 0;
+} */
+.map-frame iframe{
+    display: none;
+}
+.logo-reva-bg{
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    font-family: "Kaushan Script",cursive;
+    color: rgba(255, 255, 255, 0.11);
+    font-size:var(--large-fz) ;
+    transform: rotate(40deg);
+}
+.yellow-info p{
+padding: 20px 0;
+color: var(--white-color);
+letter-spacing: 1.5px;
+line-height: 1.4;
+/* font-weight: 600; */
+font-size: var(--fz-m);
+/* padding: 30px; */
+}
 
 
 

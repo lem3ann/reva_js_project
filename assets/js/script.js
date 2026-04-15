@@ -1,6 +1,19 @@
+// !Header little navbar functionality
+let headerCaretIcon = document.getElementsByClassName("border-and-color")[0];
+let backgroundImg = document.getElementsByClassName("right-mainpage")[0];
+let ulListIcons = document.querySelectorAll(".navbar ul li p");
+let leftVertical = document.getElementsByClassName("left-vertical")[0];
+headerCaretIcon.addEventListener("click", function () {
+  for (let i = 0; i < ulListIcons.length; i++) {
+    ulListIcons[i].style.display = "none";
+    leftVertical.style.width = "6%";
+    backgroundImg.style.width = "94%";
+  }
+});
+
 // #################### SEKIL DEYISME VE YAZI FUNKSIONALLIGI
 // BG image
-let backgroundImg = document.getElementsByClassName("right-mainpage")[0];
+
 let moveableTextNode = document.getElementsByClassName("moveable-text")[0];
 // sekil deyisme hissesi
 let bgPicArray = [
@@ -138,3 +151,86 @@ for (let i = 0; i < portfolioImgContainer.length; i++) {
     portfolioImgContainer[i].appendChild(blurContainer);
   });
 }
+
+// CONTACT PAGE ---maps functionality
+let mapButton = document.getElementsByClassName("app-length")[0];
+let mapIframe = document.querySelector(".map-frame iframe");
+let myFlag = false;
+let mapButtonContent =
+  document.querySelector(".app-length").children[1].textContent;
+mapButton.addEventListener("click", function () {
+  if (mapButton.textContent === "Close Map") {
+    mapButton.textContent = "Open Map";
+    mapIframe.style.display = "none";
+  }
+});
+mapButton.addEventListener("click", function () {
+  if (myFlag === false) {
+    mapButton.textContent = "Close Map";
+    mapIframe.style.display = "block";
+    myFlag = true;
+  }
+});
+
+// send message button
+let sendMessageBtn = document.getElementsByClassName("message-btn")[0];
+sendMessageBtn.addEventListener("mouseenter", function () {
+  sendMessageBtn.textContent = " SEND MESSAGE →";
+});
+sendMessageBtn.addEventListener("mouseleave", function () {
+  sendMessageBtn.textContent = " SEND MESSAGE";
+});
+
+//! SERVICES PAGE MODAL
+let servicesModal = document.getElementsByClassName("services-modal")[0];
+let playBtn = document.getElementsByClassName("play-btn")[0];
+let serviceSection = document.getElementsByTagName("main")[0];
+playBtn.addEventListener("click", function () {
+  servicesModal.style.display = "block";
+  serviceSection.classList.add("modal-bg-gradient");
+});
+// clear button
+let clearButton = document.getElementsByClassName("clear-x")[0];
+clearButton.addEventListener("click", function () {
+  servicesModal.style.display = "none";
+  serviceSection.classList.remove("modal-bg-gradient");
+});
+// bg color dark
+
+// ! round image changer
+let roundImgArr;
+let mainImg = document.querySelector(".round-pic-absolute img");
+let squareFrameContent = document.querySelector(".round-area-text p");
+let allRoundPics = document.querySelectorAll(".round-imgs img");
+let picBorder = document.querySelectorAll(".round-imgs");
+// picBorder[0].classList.remove("round-imgs");
+picBorder[1].classList.add = "round-class-yellow";
+for (let i = 0; i < allRoundPics.length; i++) {
+  // console.log(allRoundPics[i].getAttribute("src"));
+  allRoundPics[i].addEventListener("click", function () {
+    mainImg.setAttribute("src", allRoundPics[i].getAttribute("src"));
+  });
+}
+
+// !change all buttons color
+let orangeBtn = document.querySelectorAll(".color-btn div button")[0];
+let purpleBtn = document.querySelectorAll(".color-btn div button")[1];
+let greenBtn = document.querySelectorAll(".color-btn div button")[2];
+// let allBgColorButton=document.querySelectorAll(".color-btn div button");
+let colorNewButton = document.getElementsByClassName("change-color");
+console.log(colorNewButton);
+orangeBtn.addEventListener("click", function () {
+  for (let i = 0; i < colorNewButton.length; i++) {
+    colorNewButton[i].style.backgroundColor = "#FA6868";
+  }
+});
+purpleBtn.addEventListener("click", function () {
+  for (let i = 0; i < colorNewButton.length; i++) {
+    colorNewButton[i].style.backgroundColor = "#CA5995";
+  }
+});
+greenBtn.addEventListener("click", function () {
+  for (let i = 0; i < colorNewButton.length; i++) {
+    colorNewButton[i].style.backgroundColor = "#088395";
+  }
+});
