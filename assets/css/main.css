@@ -121,7 +121,7 @@ body {
 }
 
 .color-btn div button:nth-child(1) {
-    background-color: rgb(113, 204, 199);
+    background-color: var( --change-btn-color);
     border-radius: 10px;
     transition: all .4s ease-in-out;
 }
@@ -186,6 +186,7 @@ ul li:hover {
     padding: 15px 30px;
     letter-spacing: 1px;
     border-radius: 5px;
+    font-size: var(--font-size-standart);
 }
 
 .main-btn {
@@ -284,7 +285,10 @@ ul li:hover {
 .active {
     color: var(--yellow-without-opacity);
     transition: all .1s ease-in;
-    border-bottom: 3px solid var(--yellow-without-opacity);
+    
+}
+.active-border{
+    border-bottom: 3px solid var(--yellow-without-opacity) !important;
 }
 
 
@@ -396,6 +400,9 @@ table tr td {
 }
 
 .resume-btn a {
+    font-size: var( --fz-m) !important;
+    text-align: center !important;
+    width: 240px;
     transition: all .4s ease-in;
 }
 
@@ -578,10 +585,18 @@ table tr td {
     margin: 30px auto;
 }
 
+/* ustde olan div ucun RGBA */
 .portfolio-pics div {
     position: relative;
     width: 410px;
     height: 270px;
+   
+}
+.main-position:hover{
+background-color: rgb(15, 0, 0);
+}
+.portfolio-pics div:hover{
+ /* background-color: rgba(0, 0, 0, 0.966); */
 }
 
 .portfolio-pics img {
@@ -594,12 +609,14 @@ table tr td {
     display: flex;
     justify-content: center;
     gap: 30px;
+    padding-top: 40px;
 }
 
 .portfolio-btn button {
+    font-size: var(--fs-medium-thin);
     letter-spacing: 1px;
     line-height: 1.2;
-    padding: 8px 20px;
+    padding: 11px 23px;
     border-radius: 15px;
     border: 1px solid var(--yellow-without-opacity);
     background-color: var(--white-color);
@@ -609,29 +626,49 @@ table tr td {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 20px 0;
 }
 
 /* active ucun class */
 li button.portfolio-bg {
     background-color: var(--yellow-without-opacity);
     color: var(--white-color);
+    
 }
 
 .portfolio-pics img {
-    opacity: 0.9;
-    background-color: var(--white-color);
+    opacity: 0.8;
+    /* background-color: var(--black-color); */
+    /* background-color: var(--white-color); */
 }
 
 /* ?BLUR CLASS FOR IMG CONTAINER */
-div.dark-blur {
+.main-position{
+    position: relative;
+}
+.dark-blur {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+     /* width: 410px; */
+    /* height: 270px; */
+    /* top: -5%; */
+    left: 0;
+}
+
+/* .dark-blur {
     background-color: rgba(7, 7, 7, 0.411);
     position: absolute;
-    z-index: 3;
+    z-index: ;
     width: 410px;
     height: 270px;
     top: 0;
     left: 0;
-
+} */
+.back-z{
+    overflow: hidden;
 }
 
 .back-z img {
@@ -640,6 +677,7 @@ div.dark-blur {
 
 .back-z img:hover {
     transform: scale(1.3, 1.3);
+    background-color: rgb(0, 0, 0);
 }
 
 .overflow-class {
@@ -649,6 +687,14 @@ div.dark-blur {
 /* images opacity */
 .opacity-class {
     opacity: 0.2;
+}
+/* HOVER OLANDA GELEN TEXT */
+.position-text-front{
+    /* display: none; */
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    z-index: 30;
 }
 
 
@@ -798,8 +844,8 @@ div.dark-blur {
 
 .personal-info input {
     width: 46%;
-    margin-right: 20px;
-    padding: 20px 5px;
+    margin-right: 27px;
+    padding: 20px;
     border-bottom: 2px solid var(--yellow-without-opacity);
     border-radius: 3px;
 }
@@ -814,7 +860,7 @@ div.dark-blur {
 }
 
 .contact-form {
-    width: 40%;
+    width: 50%;
 }
 
 textarea {
@@ -826,9 +872,6 @@ textarea {
     outline: none;
 }
 
-textarea:focus {
-    border: none !important;
-}
 
 form {
     width: 100%;

@@ -3,9 +3,20 @@ let headerCaretIcon = document.getElementsByClassName("border-and-color")[0];
 let backgroundImg = document.getElementsByClassName("right-mainpage")[0];
 let ulListIcons = document.querySelectorAll(".navbar ul li p");
 let leftVertical = document.getElementsByClassName("left-vertical")[0];
+let allLinksAndBtn = document.getElementsByClassName(
+  "all-links-and-btn-hidden",
+)[0];
+// left side icon content change
+let rightSideClass = document.querySelector(".border-and-color i");
+console.log(rightSideClass);
 let navbarFlag = true;
 headerCaretIcon.addEventListener("click", function () {
+  headerCaretIcon.style.marginRight = "35%";
+  headerCaretIcon.style.marginBottom = "40px";
   if (navbarFlag) {
+    allLinksAndBtn.style.visibility = "hidden";
+    rightSideClass.classList.remove("fa-angle-left");
+    rightSideClass.classList.add("fa-angle-right");
     for (let i = 0; i < ulListIcons.length; i++) {
       ulListIcons[i].style.display = "none";
       leftVertical.style.width = "6%";
@@ -13,8 +24,12 @@ headerCaretIcon.addEventListener("click", function () {
     }
     navbarFlag = false;
   } else {
+    allLinksAndBtn.style.visibility = "visible";
+    headerCaretIcon.style.marginRight = "0";
+    headerCaretIcon.style.marginBottom = "0";
+    rightSideClass.classList.remove("fa-angle-right");
+    rightSideClass.classList.add("fa-angle-left");
     for (let i = 0; i < ulListIcons.length; i++) {
-      console.log("test");
       ulListIcons[i].style.display = "flex";
       leftVertical.style.width = "14%";
       backgroundImg.style.width = "86%";
@@ -120,14 +135,19 @@ for (let i = 0; i < ulListTopBorder.length; i++) {
 
 // ? ******************* MAIN NAVTABS ********************************8
 let mainTab = document.querySelectorAll("nav ul li.flex-center");
+let tabUnderline = document.querySelectorAll("nav ul li");
 let sectionTab = document.querySelectorAll(".section-tab");
 for (let i = 0; i < mainTab.length; i++) {
   mainTab[i].addEventListener("click", function () {
     mainTab.forEach((element) => element.classList.remove("active"));
+    tabUnderline.forEach((element) => {
+      element.classList.remove("active-border");
+    });
 
     sectionTab.forEach((content) => {
       content.style.display = "none";
     });
+    tabUnderline[i].classList.add("active-border");
 
     mainTab[i].classList.add("active");
 
@@ -150,40 +170,66 @@ for (let i = 0; i < allImagesButton.length; i++) {
     allPicContainer[i].style.display = "block";
   });
 }
+// HOVE ROLAN SEHIFEDE RULER
+// ELE ELE KI 1 MS FERQ ILE BIRINCI HOVER ISLESIN CLASS OLARAQ AT SONRA ISE QARA MODAL ATILSIN
+// DARK BLUR CLASS KIMI HOVERDEN SONRA AT MUEYYEN MUDDET KECDIKDEN Sonra
+// MAIN POSITIONUN ICINDEKI 2C- DIVI GOTUR
+let mainPositionSecond = document.querySelectorAll(
+  ".main-position div:nth-child(2)",
+);
+// console.log(mainPositionSecond);
+let addBlurContent = document.querySelectorAll(".portfolio-first div ");
 
-// ? PORTFOLIO CREATE WHITE BLUR
-// let portfolioImgContainer = document.querySelectorAll(".portfolio-first div");
-// // let test = document.querySelectorAll(".portfolio-first");
-// // console.log(portfolioImgContainer);
-// let blurContainer = document.createElement("div");
-// for (let i = 0; i < portfolioImgContainer.length; i++) {
-//   portfolioImgContainer[i].addEventListener("mouseenter", function () {
-//     blurContainer.classList.add("dark-blur");
-//     // console.log(blurContainer.parentNode);
-//     portfolioImgContainer[i].appendChild(blurContainer);
-//   });
+let allPortfolioPics = document.querySelectorAll(
+  ".portfolio-first :nth-child(1)",
+);
+// ikinci divlere dark-blur classin elave edebn function
+// function adddarkBlur() {
+//   for (let i = 0; i < mainPositionSecond.length; i++) {
+//     mainPositionSecond[i].addEventListener("click", function () {
+//       mainPositionSecond[i].classList.remove("dark-blur");
+//     });
+//   }
+//   mainPositionSecond[i].classList.add("dark-blur");
 // }
 
-// CONTACT PAGE ---maps functionality
+// setTimeout(adddarkBlur, 90);
+
+// for (let j = 0; j < allPortfolioPics.length; j++) {
+//   allPortfolioPics[j].addEventListener("click", function () {
+//     addBlurContents[j].classList.remove("back-z");
+//   });
+
+// }
+
+// ! ******************************************************************** CONTACT PAGE ---maps functionality ************************************
 let mapButton = document.getElementsByClassName("app-length")[0];
+let mapButtonTextContent = document.querySelector(".app-length span");
+let circleArrowMap = document.querySelector(".app-length i");
 let mapIframe = document.querySelector(".map-frame iframe");
 let mapHeight = document.querySelector(".map-frame");
 let myFlag = false;
 mapButton.addEventListener("click", function () {
   if (myFlag === false) {
-    mapButton.textContent = "Close Map";
+    circleArrowMap.classList.replace(
+      "fa-arrow-circle-down",
+      "fa-arrow-circle-up",
+    );
+    mapButtonTextContent.textContent = "Close Map";
     mapIframe.style.display = "block";
     mapHeight.style.height = "450px";
     myFlag = true;
   } else {
-    mapButton.textContent = "Open Map";
+    circleArrowMap.classList.replace(
+      "fa-arrow-circle-up",
+      "fa-arrow-circle-down",
+    );
+    mapButtonTextContent.textContent = "Open Map";
     mapIframe.style.display = "none";
     mapHeight.style.height = "0";
     myFlag = false;
   }
 });
-
-
 
 // send message button
 let sendMessageBtn = document.getElementsByClassName("message-btn")[0];
@@ -217,15 +263,15 @@ const squareContentArr = [
   "Vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolor.",
   "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem.",
   "Duis aute irure dolor in relore eu fugiat nulla pariatur. Excepteur.",
-  "Dlum dolore eu fugiat nulla pariatur. Excepteur"
+  "Dlum dolore eu fugiat nulla pariatur. Excepteur",
 ];
 const nameArr = [
   "Matthew Dix",
   "Joshua Earle",
   "Mike Petrucci",
   "John Doe",
-  "Lauren Dix"
-]
+  "Lauren Dix",
+];
 let mainImg = document.querySelector(".round-pic-absolute img");
 let squareFrameContent = document.querySelector(".round-area-text p");
 let allRoundPics = document.querySelectorAll(".round-imgs img");
@@ -264,3 +310,9 @@ greenBtn.addEventListener("click", function () {
     colorNewButton[i].style.backgroundColor = "#088395";
   }
 });
+
+// input placeholder font size
+let personInputs = document.querySelectorAll(".personal-info input");
+for (let i = 0; i < personInputs.length; i++) {
+  personInputs[i].placeholder.style.fontSize = "24px";
+}
