@@ -28,7 +28,7 @@ body {
 }
 
 .left-vertical {
-    width: 14%;
+    width: 12%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,7 +52,7 @@ body {
     flex-direction: column;
     justify-content: center; */
     height: 100%;
-    width: 86%;
+    width: 88%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/1.jpg");
     /* background-image: ; */
     background-repeat: no-repeat;
@@ -159,12 +159,13 @@ body {
 }
 
 .navbar ul li {
-    padding: 15px 20px;
+    /* padding: 15px 20px; */
     border-bottom: 3px solid rgb(241, 236, 236);
     line-height: 1.7;
     letter-spacing: 0.9px;
     font-weight: 100;
     transition: all .3s ease-in-out;
+    font-size:var( --font-size-classic);
 }
 
 .color-btn {
@@ -192,19 +193,6 @@ ul li:hover {
 .main-btn {
     margin: 20px 0;
 }
-
-/* .main-btn button {
-    width: 200px;
-    background-color: var(--yellow-without-opacity);
-    color: var(--white-color);
-    padding: 15px 30px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-}
-
-.main-btn {
-    margin: 20px 0;
-} */
 
 .right-mainpage h2 {
     font-size: var(--fz-extra-large);
@@ -541,27 +529,27 @@ table tr td {
 
 .services-modal {
     position: absolute;
-    top: 40%;
+    top: 35%;
     right: 28%;
     display: flex;
     flex-direction: column;
     display: none;
-    z-index: 20;
+    z-index: 500;
     transition: all .4s ease-in-out;
 }
 
-.clear-x {
+.clear-x,.x-clear-icon {
     display: flex;
     justify-content: flex-end;
     font-size: var(--font-medium-3);
     color: var(--grey-font-color);
     transition: all .4s ease-in;
-    line-height: 0.6;
+    line-height: 0.8;
     padding: 5px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.clear-x:hover {
+.clear-x:hover ,.x-clear-icon:hover{
     color: var(--white-color);
     cursor: pointer;
 }
@@ -573,31 +561,58 @@ table tr td {
 }
 
 /* ************************* PORTFOLİO CSS ********************* */
-#portfolio {
-    width: 100%;
-}
-
-.portfolio-pics {
+.portfolio-img-flex {
+    width: 80%;
+    margin: auto;
     display: flex;
-    width: 100%;
-    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    margin: 30px auto;
+    gap: 35px;
+    padding: 10px 80px;
+
 }
 
-/* ustde olan div ucun RGBA */
-.portfolio-pics div {
+.back-z div {
+    margin-top: 20px;
+    width: 100%;
+    height: 260px;
+}
+
+.back-z img {
+    width: 100%;
+    height: 100%;
+}
+
+.back-z {
+    box-shadow: -3px 5px 12px #f1f1f1;
+    width: 30%;
     position: relative;
-    width: 410px;
-    height: 270px;
-   
 }
-.main-position:hover{
-background-color: rgb(15, 0, 0);
+
+.portfolio-absolute {
+    color: var(--white-color);
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
 }
-.portfolio-pics div:hover{
- /* background-color: rgba(0, 0, 0, 0.966); */
+
+.dark-blur {
+    background-color: rgba(2, 0, 0, 0.549);
 }
+
+.portfolio-absolute p:first-child {
+    font-size: var( --med-fz);
+}
+.portfolio-absolute p:nth-child(2){
+    padding: 10px 0;
+    font-size: var( --font-size-standart);
+}
+
+
 
 .portfolio-pics img {
     width: 100%;
@@ -625,80 +640,103 @@ background-color: rgb(15, 0, 0);
 .img-container {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
     padding: 20px 0;
+    /* margin-left: 60px; */
 }
 
 /* active ucun class */
 li button.portfolio-bg {
     background-color: var(--yellow-without-opacity);
     color: var(--white-color);
-    
 }
 
-.portfolio-pics img {
-    opacity: 0.8;
-    /* background-color: var(--black-color); */
-    /* background-color: var(--white-color); */
+.back-z div {
+    overflow: hidden;
 }
 
-/* ?BLUR CLASS FOR IMG CONTAINER */
-.main-position{
+.back-z div img {
+    transition: all 0.5s ease-in;
+}
+
+.portfolio-main-content {
     position: relative;
+    width: 100%;
+    height: 100vh;
 }
-.dark-blur {
-    background-color: rgb(0, 0, 0);
+
+.portfolio-modal {
+    display: none;
     position: absolute;
-    z-index: 200;
+    top: 0;
+    left: 18%;
+    padding: 40px;
+    width: 60%;
+    height:3%;
+    z-index: 400;
+}
+
+.portfolio-modal img {
     width: 100%;
     height: 100%;
-     /* width: 410px; */
-    /* height: 270px; */
-    /* top: -5%; */
-    left: 0;
+    object-fit: cover;
 }
 
-/* .dark-blur {
-    background-color: rgba(7, 7, 7, 0.411);
+.x-clear-icon {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.x-clear-icon:hover {
+    cursor: pointer;
+}
+
+.black-bg-effect {
+    background-color: rgba(0, 0, 0, 0.382);
     position: absolute;
-    z-index: ;
-    width: 410px;
-    height: 270px;
     top: 0;
     left: 0;
-} */
-.back-z{
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 300;
+
+}
+.main-relative-position-tag{
+    position: relative;
 }
 
-.back-z img {
-    transition: all .5s ease-out;
-}
 
-.back-z img:hover {
-    transform: scale(1.3, 1.3);
-    background-color: rgb(0, 0, 0);
-}
 
-.overflow-class {
-    overflow: hidden;
+#portfolio {
+    position: relative;
 }
-
-/* images opacity */
-.opacity-class {
+/* postfolio img opacity */
+.opacity-class{
     opacity: 0.2;
+    cursor: pointer;
 }
-/* HOVER OLANDA GELEN TEXT */
-.position-text-front{
-    /* display: none; */
+.opacity-class:hover{
+    cursor:no-drop !important;
+}
+/* hide hover text */
+.portfolio-absolute div{
+    padding: 30px;  
+    position: relative;
+}
+.back-z div div{
+    display: none;
+}
+.img-container-visible{
+    display: none;
+}
+i.fa-arrows-alt{
+    font-size: var(--font-medium-3);
     position: absolute;
-    top: 40%;
-    left: 20%;
-    z-index: 30;
+    right: 5%;
+    bottom: 20%;
 }
-
-
-
 /* ! ************************** TESTIMONIALS ********************************** */
 .round-imgs {
     width: 50px;
@@ -942,6 +980,7 @@ form {
 }
 
 .logo-reva-bg {
+    margin-right: 30px;
     display: flex;
     justify-content: flex-end;
     width: 50%;
@@ -950,7 +989,9 @@ form {
     font-size: var(--large-fz);
     transform: rotate(40deg);
 }
-
+.yellow-info{
+    padding: 0 30px;
+}
 .yellow-info p {
     padding: 20px 0;
     color: var(--white-color);

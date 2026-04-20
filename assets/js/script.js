@@ -6,6 +6,11 @@ let leftVertical = document.getElementsByClassName("left-vertical")[0];
 let allLinksAndBtn = document.getElementsByClassName(
   "all-links-and-btn-hidden",
 )[0];
+let boxImg = document.querySelectorAll(".back-z div img");
+let portfolioModal = document.getElementsByClassName("portfolio-modal")[0];
+let picImgTag = document.querySelectorAll(".pathImg img")[0];
+let setBgColor = document.getElementsByClassName("black-bg-effect-relative")[0];
+
 // left side icon content change
 let rightSideClass = document.querySelector(".border-and-color i");
 console.log(rightSideClass);
@@ -31,8 +36,8 @@ headerCaretIcon.addEventListener("click", function () {
     rightSideClass.classList.add("fa-angle-left");
     for (let i = 0; i < ulListIcons.length; i++) {
       ulListIcons[i].style.display = "flex";
-      leftVertical.style.width = "14%";
-      backgroundImg.style.width = "86%";
+      leftVertical.style.width = "12%";
+      backgroundImg.style.width = "88%";
       navbarFlag = true;
     }
   }
@@ -170,37 +175,58 @@ for (let i = 0; i < allImagesButton.length; i++) {
     allPicContainer[i].style.display = "block";
   });
 }
-// HOVE ROLAN SEHIFEDE RULER
-// ELE ELE KI 1 MS FERQ ILE BIRINCI HOVER ISLESIN CLASS OLARAQ AT SONRA ISE QARA MODAL ATILSIN
-// DARK BLUR CLASS KIMI HOVERDEN SONRA AT MUEYYEN MUDDET KECDIKDEN Sonra
-// MAIN POSITIONUN ICINDEKI 2C- DIVI GOTUR
-let mainPositionSecond = document.querySelectorAll(
-  ".main-position div:nth-child(2)",
-);
-// console.log(mainPositionSecond);
-let addBlurContent = document.querySelectorAll(".portfolio-first div ");
+// PORTFOLIO IMG EFFECT
 
-let allPortfolioPics = document.querySelectorAll(
-  ".portfolio-first :nth-child(1)",
-);
-// ikinci divlere dark-blur classin elave edebn function
-// function adddarkBlur() {
-//   for (let i = 0; i < mainPositionSecond.length; i++) {
-//     mainPositionSecond[i].addEventListener("click", function () {
-//       mainPositionSecond[i].classList.remove("dark-blur");
-//     });
-//   }
-//   mainPositionSecond[i].classList.add("dark-blur");
-// }
+// her modal acilanda uygin content gorunsun deye
+const imgPathArr = [
+  "../assets/images/p-1.jpg",
+  "../assets/images/p-2.jpg",
+  "../assets/images/p-3.jpeg",
+  "../assets/images/p-4.jpg",
+  "../assets/images/p-5.jpg",
+  "../assets/images/p-6.jpg",
+  "../assets/images/p-7.jpg",
+  "../assets/images/p-8.jpg",
+  "../assets/images/p-9.jpg",
+];
+let defineOpacity = document.getElementsByClassName("opacity-class");
+let textVisible = document.querySelectorAll(".back-z div div");
+let mainPortfolioImg = document.getElementsByClassName("portfolio-absolute");
+// for da image e gelende scale ile deyis
+// ! OPACITY OLAN ELEMENTLERDE HOVER ISLEMESIN
+let firstIndexOpacity = document.querySelectorAll(".back-z div:nth-child(1)");
+console.log(firstIndexOpacity);
 
-// setTimeout(adddarkBlur, 90);
-
-// for (let j = 0; j < allPortfolioPics.length; j++) {
-//   allPortfolioPics[j].addEventListener("click", function () {
-//     addBlurContents[j].classList.remove("back-z");
-//   });
-
-// }
+for (let i = 0; i < mainPortfolioImg.length; i++) {
+  mainPortfolioImg[i].addEventListener("mouseover", function () {
+    mainPortfolioImg[i].classList.add("dark-blur");
+    boxImg[i].style.transform = "scale(1.3,1.3)";
+    textVisible[i].style.display = "block";
+  });
+  mainPortfolioImg[i].classList.remove("dark-blur");
+  mainPortfolioImg[i].addEventListener("mouseout", function () {
+    mainPortfolioImg[i].classList.remove("dark-blur");
+    boxImg[i].style.transform = "scale(1,1)";
+    textVisible[i].style.display = "none";
+  });
+}
+// modal ucun hisse
+let iClass = document.querySelectorAll("div i.fa-arrows-alt");
+for (let index = 0; index < iClass.length; index++) {
+  iClass[index].addEventListener("click", function () {
+    portfolioModal.style.display = "block";
+    picImgTag.setAttribute("src", `${imgPathArr[index]}`);
+    setBgColor.classList.add("black-bg-effect");
+  });
+}
+// clear icon ucun hisse
+let xClear = document.getElementsByClassName("x-clear-icon");
+for (let i = 0; i < xClear.length; i++) {
+  xClear[i].addEventListener("click", function () {
+    portfolioModal.style.display = "none";
+    setBgColor.classList.remove("black-bg-effect");
+  });
+}
 
 // ! ******************************************************************** CONTACT PAGE ---maps functionality ************************************
 let mapButton = document.getElementsByClassName("app-length")[0];
@@ -246,13 +272,13 @@ let playBtn = document.getElementsByClassName("play-btn")[0];
 let serviceSection = document.getElementsByTagName("main")[0];
 playBtn.addEventListener("click", function () {
   servicesModal.style.display = "block";
-  serviceSection.classList.add("modal-bg-gradient");
+  setBgColor.classList.add("black-bg-effect");
 });
 // clear button
 let clearButton = document.getElementsByClassName("clear-x")[0];
 clearButton.addEventListener("click", function () {
   servicesModal.style.display = "none";
-  serviceSection.classList.remove("modal-bg-gradient");
+  setBgColor.classList.remove("black-bg-effect");
 });
 // bg color dark
 
