@@ -13,7 +13,6 @@ let setBgColor = document.getElementsByClassName("black-bg-effect-relative")[0];
 
 // left side icon content change
 let rightSideClass = document.querySelector(".border-and-color i");
-console.log(rightSideClass);
 let navbarFlag = true;
 headerCaretIcon.addEventListener("click", function () {
   headerCaretIcon.style.marginRight = "35%";
@@ -161,6 +160,7 @@ for (let i = 0; i < mainTab.length; i++) {
 }
 
 // ****************PORTFOLIO SEHIFESI UCUN JS   ***************************
+// esas navtabda reng funksionalligi
 let allImagesButton = document.querySelectorAll(".portfolio-btn button");
 let allPicContainer = document.querySelectorAll(".img-container");
 for (let i = 0; i < allImagesButton.length; i++) {
@@ -175,6 +175,35 @@ for (let i = 0; i < allImagesButton.length; i++) {
     allPicContainer[i].style.display = "block";
   });
 }
+// 
+// ! *********************************************************change all buttons color
+let orangeBtn = document.querySelectorAll(".color-btn div button")[0];
+let purpleBtn = document.querySelectorAll(".color-btn div button")[1];
+let greenBtn = document.querySelectorAll(".color-btn div button")[2];
+let body = document.getElementsByTagName("body")[0];
+// let allBgColorButton=document.querySelectorAll(".color-btn div button");
+let colorNewButton = document.getElementsByClassName("change-color");
+orangeBtn.addEventListener("click", function () {
+  // allImagesButton.forEach((element) => {
+  //   element.classList.remove("portfolio-bg", "change-color");
+  // });
+  for (let i = 0; i < colorNewButton.length; i++) {
+    colorNewButton[i].style.backgroundColor = "#FA6868";
+    body.style.backgroundColor = "#ffffff";
+  }
+});
+purpleBtn.addEventListener("click", function () {
+  for (let i = 0; i < colorNewButton.length; i++) {
+    colorNewButton[i].style.backgroundColor = "#CA5995";
+    body.style.backgroundColor = "#e5e3fa";
+  }
+});
+greenBtn.addEventListener("click", function () {
+  for (let i = 0; i < colorNewButton.length; i++) {
+    colorNewButton[i].style.backgroundColor = "#088395";
+    body.style.backgroundColor = "#ffffff";
+  }
+});
 // PORTFOLIO IMG EFFECT
 
 // her modal acilanda uygin content gorunsun deye
@@ -187,35 +216,41 @@ const imgPathArr = [
   "../assets/images/p-6.jpg",
   "../assets/images/p-7.jpg",
   "../assets/images/p-8.jpg",
-  "../assets/images/p-9.jpg",
+  "../assets/images/p-9.jpg"
 ];
 let defineOpacity = document.getElementsByClassName("opacity-class");
 let textVisible = document.querySelectorAll(".back-z div div");
 let mainPortfolioImg = document.getElementsByClassName("portfolio-absolute");
+// all back-z class
+let allImgTextContainers = document.querySelectorAll(".back-z");
 // for da image e gelende scale ile deyis
 // ! OPACITY OLAN ELEMENTLERDE HOVER ISLEMESIN
-let firstIndexOpacity = document.querySelectorAll(".back-z div:nth-child(1)");
-console.log(firstIndexOpacity);
 
 for (let i = 0; i < mainPortfolioImg.length; i++) {
-  mainPortfolioImg[i].addEventListener("mouseover", function () {
+  if (allImgTextContainers[i].querySelector(".opacity-class")) {
+    allImgTextContainers[i].style.cursor = "no-drop";
+    continue;
+  }
+  allImgTextContainers[i].addEventListener("mouseover", function () {
     mainPortfolioImg[i].classList.add("dark-blur");
     boxImg[i].style.transform = "scale(1.3,1.3)";
     textVisible[i].style.display = "block";
   });
-  mainPortfolioImg[i].classList.remove("dark-blur");
+  allImgTextContainers[i].classList.remove("dark-blur");
   mainPortfolioImg[i].addEventListener("mouseout", function () {
     mainPortfolioImg[i].classList.remove("dark-blur");
     boxImg[i].style.transform = "scale(1,1)";
     textVisible[i].style.display = "none";
   });
 }
+
 // modal ucun hisse
 let iClass = document.querySelectorAll("div i.fa-arrows-alt");
 for (let index = 0; index < iClass.length; index++) {
+
   iClass[index].addEventListener("click", function () {
     portfolioModal.style.display = "block";
-    picImgTag.setAttribute("src", `${imgPathArr[index]}`);
+    picImgTag.setAttribute("src", `${imgPathArr[index%9]}`);
     setBgColor.classList.add("black-bg-effect");
   });
 }
@@ -314,28 +349,7 @@ for (let i = 0; i < allRoundPics.length; i++) {
   });
 }
 
-// ! *********************************************************change all buttons color
-let orangeBtn = document.querySelectorAll(".color-btn div button")[0];
-let purpleBtn = document.querySelectorAll(".color-btn div button")[1];
-let greenBtn = document.querySelectorAll(".color-btn div button")[2];
-// let allBgColorButton=document.querySelectorAll(".color-btn div button");
-let colorNewButton = document.getElementsByClassName("change-color");
-console.log(colorNewButton);
-orangeBtn.addEventListener("click", function () {
-  for (let i = 0; i < colorNewButton.length; i++) {
-    colorNewButton[i].style.backgroundColor = "#FA6868";
-  }
-});
-purpleBtn.addEventListener("click", function () {
-  for (let i = 0; i < colorNewButton.length; i++) {
-    colorNewButton[i].style.backgroundColor = "#CA5995";
-  }
-});
-greenBtn.addEventListener("click", function () {
-  for (let i = 0; i < colorNewButton.length; i++) {
-    colorNewButton[i].style.backgroundColor = "#088395";
-  }
-});
+
 
 // input placeholder font size
 let personInputs = document.querySelectorAll(".personal-info input");

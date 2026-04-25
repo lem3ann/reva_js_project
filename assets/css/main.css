@@ -121,7 +121,7 @@ body {
 }
 
 .color-btn div button:nth-child(1) {
-    background-color: var( --change-btn-color);
+    background-color: var(--change-btn-color);
     border-radius: 10px;
     transition: all .4s ease-in-out;
 }
@@ -165,7 +165,7 @@ body {
     letter-spacing: 0.9px;
     font-weight: 100;
     transition: all .3s ease-in-out;
-    font-size:var( --font-size-classic);
+    font-size: var(--font-size-classic);
 }
 
 .color-btn {
@@ -273,9 +273,10 @@ ul li:hover {
 .active {
     color: var(--yellow-without-opacity);
     transition: all .1s ease-in;
-    
+
 }
-.active-border{
+
+.active-border {
     border-bottom: 3px solid var(--yellow-without-opacity) !important;
 }
 
@@ -388,7 +389,7 @@ table tr td {
 }
 
 .resume-btn a {
-    font-size: var( --fz-m) !important;
+    font-size: var(--fz-m) !important;
     text-align: center !important;
     width: 240px;
     transition: all .4s ease-in;
@@ -528,9 +529,10 @@ table tr td {
 }
 
 .services-modal {
-    position: absolute;
-    top: 35%;
-    right: 28%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: (-50%, -50%);
     display: flex;
     flex-direction: column;
     display: none;
@@ -538,7 +540,8 @@ table tr td {
     transition: all .4s ease-in-out;
 }
 
-.clear-x,.x-clear-icon {
+.clear-x,
+.x-clear-icon {
     display: flex;
     justify-content: flex-end;
     font-size: var(--font-medium-3);
@@ -549,7 +552,8 @@ table tr td {
     font-weight: 700;
 }
 
-.clear-x:hover ,.x-clear-icon:hover{
+.clear-x:hover,
+.x-clear-icon:hover {
     color: var(--white-color);
     cursor: pointer;
 }
@@ -597,7 +601,7 @@ table tr td {
     position: absolute;
     top: 0;
     left: 0;
-    
+
 }
 
 .dark-blur {
@@ -605,11 +609,12 @@ table tr td {
 }
 
 .portfolio-absolute p:first-child {
-    font-size: var( --med-fz);
+    font-size: var(--med-fz);
 }
-.portfolio-absolute p:nth-child(2){
+
+.portfolio-absolute p:nth-child(2) {
     padding: 10px 0;
-    font-size: var( --font-size-standart);
+    font-size: var(--font-size-standart);
 }
 
 
@@ -673,7 +678,7 @@ li button.portfolio-bg {
     left: 18%;
     padding: 40px;
     width: 60%;
-    height:3%;
+    height: 3%;
     z-index: 400;
 }
 
@@ -703,7 +708,8 @@ li button.portfolio-bg {
     z-index: 300;
 
 }
-.main-relative-position-tag{
+
+.main-relative-position-tag {
     position: relative;
 }
 
@@ -712,31 +718,38 @@ li button.portfolio-bg {
 #portfolio {
     position: relative;
 }
+
 /* postfolio img opacity */
-.opacity-class{
+.opacity-class {
     opacity: 0.2;
     cursor: pointer;
 }
-.opacity-class:hover{
-    cursor:no-drop !important;
+
+.opacity-class:hover {
+    cursor: no-drop !important;
 }
+
 /* hide hover text */
-.portfolio-absolute div{
-    padding: 30px;  
+.portfolio-absolute div {
+    padding: 30px;
     position: relative;
 }
-.back-z div div{
+
+.back-z div div {
     display: none;
 }
-.img-container-visible{
+
+.img-container-visible {
     display: none;
 }
-i.fa-arrows-alt{
+
+i.fa-arrows-alt {
     font-size: var(--font-medium-3);
     position: absolute;
     right: 5%;
     bottom: 20%;
 }
+
 /* ! ************************** TESTIMONIALS ********************************** */
 .round-imgs {
     width: 50px;
@@ -989,9 +1002,11 @@ form {
     font-size: var(--large-fz);
     transform: rotate(40deg);
 }
-.yellow-info{
+
+.yellow-info {
     padding: 0 30px;
 }
+
 .yellow-info p {
     padding: 20px 0;
     color: var(--white-color);
@@ -1001,6 +1016,7 @@ form {
     font-size: var(--fz-m);
     /* padding: 30px; */
 }
+
 
 
 
@@ -1048,4 +1064,9 @@ form {
 /* skills range */
 .skills-range {
     display: none;
+}
+
+/* COLOR CLASS  FOR ALL BUTTON  */
+.color-light-red {
+    background-color: #FA6868;
 }
