@@ -177,6 +177,7 @@ for (let i = 0; i < allImagesButton.length; i++) {
 }
 // 
 // ! *********************************************************change all buttons color
+let portfolioBg = document.getElementsByClassName("portfolio-bg")[0];
 let orangeBtn = document.querySelectorAll(".color-btn div button")[0];
 let purpleBtn = document.querySelectorAll(".color-btn div button")[1];
 let greenBtn = document.querySelectorAll(".color-btn div button")[2];
@@ -184,23 +185,19 @@ let body = document.getElementsByTagName("body")[0];
 // let allBgColorButton=document.querySelectorAll(".color-btn div button");
 let colorNewButton = document.getElementsByClassName("change-color");
 orangeBtn.addEventListener("click", function () {
-  // allImagesButton.forEach((element) => {
-  //   element.classList.remove("portfolio-bg", "change-color");
-  // });
-  for (let i = 0; i < colorNewButton.length; i++) {
-    colorNewButton[i].style.backgroundColor = "#FA6868";
-    body.style.backgroundColor = "#ffffff";
-  }
+  document.body.style.setProperty("--yellow-without-opacity", "#FFC50F");
 });
 purpleBtn.addEventListener("click", function () {
   for (let i = 0; i < colorNewButton.length; i++) {
-    colorNewButton[i].style.backgroundColor = "#CA5995";
+    document.body.style.setProperty("--yellow-without-opacity", "#CA5995");
+    // colorNewButton[i].style.backgroundColor = "#CA5995";
     body.style.backgroundColor = "#e5e3fa";
   }
 });
 greenBtn.addEventListener("click", function () {
   for (let i = 0; i < colorNewButton.length; i++) {
-    colorNewButton[i].style.backgroundColor = "#088395";
+    document.body.style.setProperty("--yellow-without-opacity", "#088395");
+    // colorNewButton[i].style.backgroundColor = "#088395";
     body.style.backgroundColor = "#ffffff";
   }
 });
