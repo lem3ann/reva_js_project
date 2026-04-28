@@ -47,26 +47,71 @@ headerCaretIcon.addEventListener("click", function () {
 
 let moveableTextNode = document.getElementsByClassName("moveable-text")[0];
 // sekil deyisme hissesi
-let bgPicArray = [
-  "../assets/images/1.jpg",
-  "../assets/images/2.jpg",
-  "../assets/images/3.jpg",
-];
-let imgIndex = 0;
+// -------------------------------------------MAIN--------------------------------------------------------------------
+// let bgPicArray = [
+//   "../assets/images/1.jpg",
+//   "../assets/images/2.jpg",
+//   "../assets/images/3.jpg",
+// ];
+// let imgIndex = 0;
 
-function changeBackground() {
-  backgroundImg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${bgPicArray[imgIndex]})`;
-  imgIndex++;
-  if (imgIndex === bgPicArray.length) {
-    imgIndex = 0;
-  }
-}
-setInterval(changeBackground, 5000);
+// function changeBackground() {
+//   backgroundImg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${bgPicArray[imgIndex]})`;
+//   imgIndex++;
+//   if (imgIndex === bgPicArray.length) {
+//     imgIndex = 0;
+//   }
+// }
+// setInterval(changeBackground, 5000);
 
 let textVar = moveableTextNode.textContent;
 let secondLine = "Graphic Designer";
 let flag = true;
+// -------------------------------------------------END -------------------------------------------------------------------
+// -------------------------------------------------NEW --------------------------------------------------------------------------
+let allSwiperImgs = document.querySelectorAll(".center-margin img");
+allSwiperImgs[0].style.opacity = 1;
+let index = 0;
+function hideImages() {
+  for (const element of allSwiperImgs) {
+    element.style.opacity = 0;
+  }
+}
 
+setInterval(function () {
+  if (index === 0) {
+    index = allSwiperImgs.length - 1;
+  } else {
+    index--;
+  }
+  hideImages();
+  allSwiperImgs[index].style.opacity = 1;
+}, 4000);
+
+// LEFT AND RIGHT CARET ICON FUNCTIONALITY
+let leftArrow = document.querySelectorAll(".positions-arrow button")[0];
+let rightArrow = document.querySelectorAll(".positions-arrow button")[1];
+
+leftArrow.addEventListener("click", function backward() {
+  if (index === 0) {
+    index = allSwiperImgs.length - 1;
+  } else {
+    index--;
+  }
+  hideImages();
+  allSwiperImgs[index].style.opacity = 1;
+});
+rightArrow.addEventListener("click", function forward() {
+  if (index === allSwiperImgs.length - 1) {
+    index = 0;
+  } else {
+    index++;
+  }
+  hideImages();
+  allSwiperImgs[index].style.opacity = 1;
+});
+// rightArrow.addEventListener("click", changeBackground);
+// ------------------------------------------------------END ----------------------------------------------------------
 // tek-tek string silen function
 function removeTextString() {
   if (textVar.length > 0) {
@@ -101,11 +146,6 @@ setInterval(() => {
     writeForward();
   }
 }, 100);
-// LEFT AND RIGHT CARET ICON FUNCTIONALITY
-let leftArrow = document.querySelectorAll(".positions-arrow button")[0];
-let rightArrow = document.querySelectorAll(".positions-arrow button")[1];
-leftArrow.addEventListener("click", changeBackground);
-rightArrow.addEventListener("click", changeBackground);
 
 // !       ##########################   NAVTABS MENTIQI ####################################
 
@@ -137,7 +177,7 @@ for (let i = 0; i < ulListTopBorder.length; i++) {
   });
 }
 
-// ? ******************* MAIN NAVTABS ********************************8
+// ? ******************* MAIN NAVTABS ********************************
 let mainTab = document.querySelectorAll("nav ul li.flex-center");
 let tabUnderline = document.querySelectorAll("nav ul li");
 let sectionTab = document.querySelectorAll(".section-tab");
@@ -175,7 +215,7 @@ for (let i = 0; i < allImagesButton.length; i++) {
     allPicContainer[i].style.display = "block";
   });
 }
-// 
+//
 // ! *********************************************************change all buttons color
 let portfolioBg = document.getElementsByClassName("portfolio-bg")[0];
 let orangeBtn = document.querySelectorAll(".color-btn div button")[0];
@@ -185,18 +225,18 @@ let body = document.getElementsByTagName("body")[0];
 // let allBgColorButton=document.querySelectorAll(".color-btn div button");
 let colorNewButton = document.getElementsByClassName("change-color");
 orangeBtn.addEventListener("click", function () {
-  document.body.style.setProperty("--yellow-without-opacity", "#FFC50F");
+  document.body.style.setProperty("--yellow-without-opacity", "#458B73");
 });
 purpleBtn.addEventListener("click", function () {
   for (let i = 0; i < colorNewButton.length; i++) {
     document.body.style.setProperty("--yellow-without-opacity", "#CA5995");
     // colorNewButton[i].style.backgroundColor = "#CA5995";
-    body.style.backgroundColor = "#e5e3fa";
+    // body.style.backgroundColor = "#e5e3fa";
   }
 });
 greenBtn.addEventListener("click", function () {
   for (let i = 0; i < colorNewButton.length; i++) {
-    document.body.style.setProperty("--yellow-without-opacity", "#088395");
+    document.body.style.setProperty("--yellow-without-opacity", "#434E78");
     // colorNewButton[i].style.backgroundColor = "#088395";
     body.style.backgroundColor = "#ffffff";
   }
@@ -213,7 +253,7 @@ const imgPathArr = [
   "../assets/images/p-6.jpg",
   "../assets/images/p-7.jpg",
   "../assets/images/p-8.jpg",
-  "../assets/images/p-9.jpg"
+  "../assets/images/p-9.jpg",
 ];
 let defineOpacity = document.getElementsByClassName("opacity-class");
 let textVisible = document.querySelectorAll(".back-z div div");
@@ -244,10 +284,9 @@ for (let i = 0; i < mainPortfolioImg.length; i++) {
 // modal ucun hisse
 let iClass = document.querySelectorAll("div i.fa-arrows-alt");
 for (let index = 0; index < iClass.length; index++) {
-
   iClass[index].addEventListener("click", function () {
     portfolioModal.style.display = "block";
-    picImgTag.setAttribute("src", `${imgPathArr[index%9]}`);
+    picImgTag.setAttribute("src", `${imgPathArr[index % 9]}`);
     setBgColor.classList.add("black-bg-effect");
   });
 }
@@ -345,8 +384,6 @@ for (let i = 0; i < allRoundPics.length; i++) {
     namesForContent.textContent = nameArr[i];
   });
 }
-
-
 
 // input placeholder font size
 let personInputs = document.querySelectorAll(".personal-info input");
