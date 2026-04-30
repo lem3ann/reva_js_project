@@ -125,7 +125,7 @@ function removeTextString() {
 function showText(text) {
   moveableTextNode.textContent = text;
 }
-// function write forward
+// function write forwards
 
 let k = 0;
 
@@ -146,6 +146,10 @@ setInterval(() => {
     writeForward();
   }
 }, 100);
+// if (moveableText.textContent.length === 0) {
+//   // moveableText.style.height = "30px";
+//   console.log("test");
+// }
 
 // !       ##########################   NAVTABS MENTIQI ####################################
 

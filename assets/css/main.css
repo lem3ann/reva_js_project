@@ -284,6 +284,8 @@ ul li:hover {
     letter-spacing: 1px;
     /* padding-top: 4px; */
     padding-bottom: 25px;
+    transition:all .5s;
+    height: 70px;
 }
 
 ::-webkit-scrollbar {
@@ -390,7 +392,9 @@ ul li:hover {
     border-top: 3px solid var(--yellow-without-opacity);
     /* transition: all .4s ease-in-out; */
 }
-
+.positions-arrow button:hover{
+    cursor:pointer;
+}
 .flex-ul-list li i {
     padding-bottom: 10px;
 }
